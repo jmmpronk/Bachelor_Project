@@ -6,7 +6,7 @@ f_low = 30
 sample_rate = 4
 
 for i in range(0, 20):
-    ecc = i/200
+    ecc = i/100
 # Generate the two waveforms to compare
     hp, hc = get_fd_waveform(approximant="TaylorF2",
                             mass1=10,
