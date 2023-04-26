@@ -11,7 +11,7 @@ hp, hc = waveform.get_td_waveform(approximant='TaylorF2',
                             f_lower=40)
 
 sptilde, sctilde = waveform.get_fd_waveform(approximant="TaylorF2Ecc",
-                             mass1=10, mass2=10, delta_f=1.0/4, f_lower=40, eccentricity = 0.9)
+                             mass1=10, mass2=10, delta_f=1.0/4, f_lower=40, eccentricity = 0.2)
 
 # FFT it to the time-domain
 tlen = int(1.0 / hp.delta_t / sptilde.delta_f)
