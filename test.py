@@ -19,10 +19,12 @@ sptilde.resize(tlen/2 + 1)
 sp = types.TimeSeries(types.zeros(tlen), delta_t=hp.delta_t)
 fft.ifft(sptilde, sp)
 
-pp.plot(sp.sample_times, sp, label="TaylorF2Ecc (IFFT)")
+pp.plot(sp.sample_times, sp, label="TaylorF2Ecc")
 pp.plot(hp.sample_times, hp, label='TaylorF2')
 
 pp.ylabel('Strain')
 pp.xlabel('Time (s)')
 pp.legend()
 pp.show()
+# pp.savefig("TF2Ecc-IFFT.png")
+
