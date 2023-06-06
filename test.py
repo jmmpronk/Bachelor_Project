@@ -25,6 +25,6 @@ pp.plot(hp.sample_times, hp, label='TaylorF2')
 pp.ylabel('Strain')
 pp.xlabel('Time (s)')
 pp.legend()
-pp.show()
-# pp.savefig("TF2Ecc-IFFT.png")
+pp.xlim(-2, 0.2)
+pp.savefig("TF2Eccspin-IFFT.png")
 

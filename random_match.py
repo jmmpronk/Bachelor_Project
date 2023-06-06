@@ -1,20 +1,25 @@
 import numpy as np
+import matplotlib.pyplot as plt
 from pycbc.waveform import get_fd_waveform
 from pycbc.filter import match
 from pycbc.psd import aLIGOZeroDetHighPower
 
-f_low = 10
+f_low = 40
 sample_rate = 4
 
 def match_waveform(ecc, M_tot):
     M_1 = M_tot / 2
     M_2 = M_tot / 2
 
+    spin = 0
+
     # Generate the two waveforms to compare
     hp, hc = get_fd_waveform(
         approximant="TaylorF2",
         mass1=M_1,
         mass2=M_2,
+        spin1z=spin,
+        spin2Z=spin,
         f_lower=f_low,
         delta_f=1.0 / sample_rate,
     )
@@ -23,6 +28,8 @@ def match_waveform(ecc, M_tot):
         approximant="TaylorF2Ecc",
         mass1=M_1,
         mass2=M_2,
+        spin1z=spin,
+        spin2Z=spin,
         f_lower=f_low,
         delta_f=1.0 / sample_rate,
         eccentricity=ecc,
@@ -43,9 +50,9 @@ def match_waveform(ecc, M_tot):
     return m
 
 
-for i in range(100):
-    A = np.random.rand() * 0.2
-    B = np.random.rand() * 90 + 10
 
-    res = match_waveform(A, B)
-    print(res)
+X = np.random.rand(100) * 0.2
+Y = np.random.rand(100) * 90 + 10
+
+f2 = np.vectorize(match_waveform)
+Z = f2(X, Y)

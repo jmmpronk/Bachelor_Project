@@ -4,7 +4,7 @@ from pycbc.waveform import get_fd_waveform
 from pycbc.filter import match
 from pycbc.psd import aLIGOZeroDetHighPower
 
-f_low = 10
+f_low = 40
 sample_rate = 4
 
 spin = np.linspace(0, 1, 100)
@@ -19,7 +19,7 @@ def match_waveform(ecc, spin):
                             mass1=10,
                             mass2=10,
                             spin1z=spin,
-                            spin2Z=1,
+                            spin2Z=0,
                             f_lower=f_low,
                             delta_f=1.0/sample_rate)
 
@@ -27,7 +27,7 @@ def match_waveform(ecc, spin):
                             mass1=10,
                             mass2=10,
                             spin1z=spin,
-                            spin2Z=1,
+                            spin2Z=0,
                             f_lower=f_low,
                             delta_f=1.0/sample_rate,
                             eccentricity=ecc)
